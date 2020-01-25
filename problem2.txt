@@ -1,0 +1,47 @@
+Script started on Wed 05 Dec 2018 07:03:04 PM EST
+azamk@pe07:~/cs630/hw5$ sqlplus azamk/azamk@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Dec 5 19:03:06 2018
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Dec 05 2018 18:39:25 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> set serveroutput on
+SQL> set echo on
+SQL> @sf_distance.sql;
+SQL> create or replace function geo_distance(long1 in binary_double, lat1 in binary_double, long2 in binary_double, lat2 in binary_double)
+  2  return binary_double is
+  3  distance_var binary_double;
+  4  
+  5  begin
+  6  
+  7  select sdo_geom.sdo_distance (sdo_geometry (2001, 4326, null, sdo_elem_info_array(1, 1, 1), sdo_ordinate_array(long1, lat1)),
+  8  							       sdo_geometry (2001, 4326, null, sdo_elem_info_array(1, 1, 1), sdo_ordinate_array(long2, lat2)),1,'unit=M')
+  9  							       into distance_var from dual;
+ 10  
+ 11  return distance_var;
+ 12  end;
+ 13  /
+
+Function created.
+
+SQL> 
+SQL> 
+SQL> select geo_distance(151.20208, -33.883741, 151.195986, -33.87266) from dual;
+
+GEO_DISTANCE(151.20208,-33.883741,151.195986,-33.87266)
+-------------------------------------------------------
+					     1.352E+003
+
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+azamk@pe07:~/cs630/hw5$ exit
+exit
+
+Script done on Wed 05 Dec 2018 07:03:51 PM EST

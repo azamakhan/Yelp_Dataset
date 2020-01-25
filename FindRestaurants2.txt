@@ -1,0 +1,39 @@
+Script started on Wed 05 Dec 2018 11:38:33 PM EST
+azamk@pe07:~/cs630/hw5$ java -classpath ojdbc6.jar:. FindRestaurants2
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: azamk
+password: azamk
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+Enter Listing No.: 
+25
+Enter Category: 
+Restaurants
+Category Name: Restaurants 
+Count: 10
+azamk@pe07:~/cs630/hw5$ java -classpath ojdbc6.jar:. FindRestaurants2
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: azamk
+password: azamk
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+Enter Listing No.: 
+25
+Enter Category: 
+Grocery
+Category Name: Grocery 
+Count: 0
+azamk@pe07:~/cs630/hw5$ exit
+exit
+
+Script done on Wed 05 Dec 2018 11:44:14 PM EST

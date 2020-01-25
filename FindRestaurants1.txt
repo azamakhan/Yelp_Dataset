@@ -1,0 +1,68 @@
+Script started on Wed 05 Dec 2018 07:18:25 PM EST
+azamk@pe07:~/cs630/hw5$ java -classpath ojdbc6.jar:. FindRestaurants1
+Please enter information to test connection to the database
+Using Oracle (o), MySql (m) or HSQLDB (h)? o
+user: azamk
+password: azamk
+use canned Oracle connection string (y/n): y
+host: dbs3.cs.umb.edu
+port (often 1521): 1521
+sid (site id): dbs3
+using connection string: jdbc:oracle:thin:@dbs3.cs.umb.edu:1521:dbs3
+Connecting to the database...connected.
+Enter Listing No.: 
+25
+ Name: Quiznos 
+ Ratings: 3.0 
+ No. of Reviews: 25
+ Distance: 134.335507158306
+
+ Name: Distill - A Local Bar 
+ Ratings: 3.5 
+ No. of Reviews: 95
+ Distance: 134.335507158303
+
+ Name: Vegeway 
+ Ratings: 4.0 
+ No. of Reviews: 102
+ Distance: 77.6749311939261
+
+ Name: Braddah's Island Style 
+ Ratings: 4.0 
+ No. of Reviews: 237
+ Distance: 77.6749311939261
+
+ Name: Jack in the Box 
+ Ratings: 3.0 
+ No. of Reviews: 23
+ Distance: 142.778538686332
+
+ Name: Chip Off The Block Deli 
+ Ratings: 4.0 
+ No. of Reviews: 62
+ Distance: 142.77778440315
+
+ Name: Waffles Cafe 
+ Ratings: 4.0 
+ No. of Reviews: 246
+ Distance: 122.060553393896
+
+ Name: Philly Steak Express 
+ Ratings: 3.5 
+ No. of Reviews: 172
+ Distance: 133.156995062331
+
+ Name: Domino's Pizza 
+ Ratings: 2.5 
+ No. of Reviews: 28
+ Distance: 142.777784403154
+
+ Name: North End Pizza 
+ Ratings: 3.0 
+ No. of Reviews: 276
+ Distance: 126.304481019642
+
+azamk@pe07:~/cs630/hw5$ exit
+exit
+
+Script done on Wed 05 Dec 2018 07:19:55 PM EST

@@ -1,0 +1,85 @@
+Script started on Wed 05 Dec 2018 09:50:06 PM EST
+azamk@pe07:~/cs630/hw5$ exitsqlplus azamk/azamk@//dbs3.cs.umb.edu/dbs3
+
+SQL*Plus: Release 12.1.0.2.0 Production on Wed Dec 5 21:50:09 2018
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Dec 05 2018 21:29:32 -05:00
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> @drop_apartmentdb.sql;
+
+Table dropped.
+
+
+Table dropped.
+
+SQL> @create_apartmentdb.sql;
+
+Table created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+SQL> CALL delete_listing(35);
+
+Call completed.
+
+SQL> SELECT COUNT(*) FROM apartments;
+
+  COUNT(*)
+----------
+       214
+
+SQL> SELECT COUNT(*) FROM rented_apartments;
+
+  COUNT(*)
+----------
+	 1
+
+SQL> @sp_delete_listing.sql;
+SQL> CREATE OR REPLACE PROCEDURE delete_listing(listing_param rented_apartments.id%TYPE) IS
+  2  BEGIN
+  3  	     INSERT into rented_apartments (SELECT * FROM apartments WHERE listing = listing_param);
+  4  	     DELETE from apartments WHERE listing = listing_param;
+  5  END;
+  6  /
+
+Procedure created.
+
+SQL> 
+SQL> CALL delete_listing(120);
+
+Call completed.
+
+SQL> 
+SQL> SELECT COUNT(*) FROM apartments;
+
+  COUNT(*)
+----------
+       213
+
+SQL> 
+SQL> SELECT COUNT(*) FROM rented_apartments;
+
+  COUNT(*)
+----------
+	 2
+
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+azamk@pe07:~/cs630/hw5$ exit
+exit
+
+Script done on Wed 05 Dec 2018 09:54:31 PM EST
